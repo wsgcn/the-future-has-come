@@ -1,7 +1,9 @@
 ## 建成项目
 
+前置安装，[搜车公用脚手架项目地址](http://fedoc.sqaproxy.souche.com/#/f2e/standard/project_boilerplates)
+
 ```bash
-sox init souche:souche-vue/project-template#2.0 --clone
+sue init souche:souche-vue/project-template#feat/local --clone
 ## 一堆设置后
 
 git init
@@ -13,6 +15,49 @@ git status
 ![](http://img.souche.com/20170809/png/f0683d922120f3d6a82d8c936c288b87.png)
 
 ![](http://img.souche.com/20170809/png/26549c06ba7d7f81a9beac79fd0589af.png)
+
+## 项目本地开发
+
+### 前置host环境需要
+
+修改 hosts 文件，加入规则
+
+```
+local.souche.com 127.0.0.1
+```
+
+### 安装依赖，并且运行
+
+```
+# 采用了souche的私有库
+npm install --registry=http://registry.npm.souche-inc.com
+
+npm run local
+```
+
+## 开发过程中遇到的问题
+
+### 浏览器自带样式
+
+打开了 http://local.souche.com:8111/#/ 发现浏览器自带的样式仍然在，body标签还有margin属性。于是本项目里提供了 ./src/assets/less/reset.less 供你参考。
+
+### 搜车内部库
+
+有哪些搜车内部可用库？
+
+* ui组件库[so-ui](http://f2e-assets.souche.com/projects/so-ui/www/index.html#/components/color)
+* 共用函数库[souche-util](http://git.souche.com/souche-f2e/souche-util/tree/master)
+* app和h5交互通用库[Tower](http://fedoc.sqaproxy.souche.com/#/f2e/packages/tower/catalog/index)
+
+## 项目发布
+
+```
+npm run build
+# 测试环境选择dev，预发环境选prepub，线上选prod
+
+# 测试环境(dev)推送，可以直接推送到服务器，但是预发(prepub)和线上(prod)只会留个存档，需要找运维发布
+sw publish dev
+```
 
 ## 单页结构目录介绍
 
