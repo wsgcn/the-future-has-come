@@ -1,0 +1,32 @@
+//辅助类
+.clearfix {
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+.pull-left {
+    float: left;
+}
+.pull-right {
+    float: right;
+}
+.show {
+    display: block !important;
+}
+.hidden {
+    display: none !important;
+}
+.invisible {
+    visibility: hidden;
+}
+
+.ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
