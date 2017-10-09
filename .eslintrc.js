@@ -77,7 +77,7 @@ module.exports = {
         "new-parens": 2,
         "no-alert": 1,
         "no-cond-assign": 2,
-        "no-console": 1,
+        "no-console": 0,
         "no-constant-condition": 1,
         "no-else-return": 0,
         "no-extra-boolean-cast": 2,
@@ -103,7 +103,7 @@ module.exports = {
         "no-unneeded-ternary": 2,
         "no-unused-expressions": 0,
         "no-unused-vars": [
-            1,
+            0,
             {
                 "vars": "all",
                 "args": "after-used"

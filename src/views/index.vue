@@ -18,6 +18,12 @@
         color: #3498DB;
     }
 }
+.pg-body {
+    padding: 20px 50px 0px 50px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
 </style>
 
 <template>
@@ -25,19 +31,27 @@
         <nav class="pg-nav">
             <div class="nav-item">LOGO</div>
             <div class="nav-item" :class="{'z-active':isWxApp}" @click="onWxApp" @mouseover="onWxApp">微信小程序</div>
+            <div class="nav-item">微信公众号</div>
+            <div class="nav-item">网站定制</div>
             <div class="nav-item" :class="{'z-active':isCase}" @click="onCase" @mouseover="onCase">案例</div>
             <div class="nav-item" :class="{'z-active':isWhyUs}" @click="onWhyUs" @mouseover="onWhyUs">优势</div>
             <div class="nav-item" :class="{'z-active':isService}" @click="onService" @mouseover="onService">售后服务</div>
-            <div class="nav-item" :class="{'z-active':isReport}" @click="onReport" @mouseover="onReport">媒体报道</div>
+            <!-- <div class="nav-item" :class="{'z-active':isReport}" @click="onReport" @mouseover="onReport">媒体报道</div> -->
             <div class="nav-item" :class="{'z-active':isAbout}" @click="onAbout" @mouseover="onAbout">关于我们</div>
         </nav>
+         
+        <div class="pg-body">
+            <WxApp v-if="isWxApp" class="pg-nav-item" ref="wxApp"></WxApp>
+            <Case v-if="isCase" class="pg-nav-item" ></Case>
+            <WhyUs v-if="isWhyUs" class="pg-nav-item"></WhyUs>
+            <Service v-if="isWhyUs" class="pg-nav-item"></Service>
+            <!-- <Report v-if="isReport" class="pg-nav-item"></Report> -->
+            <About v-if="isAbout" class="pg-nav-item"></About>
+        </div>
 
-        <WxApp v-if="isWxApp" class="pg-nav-item"></WxApp>
-        <Case v-if="isCase" class="pg-nav-item"></Case>
-        <WhyUs v-if="isWhyUs" class="pg-nav-item"></WhyUs>
-        <Service v-if="isWhyUs" class="pg-nav-item"></Service>
-        <Report v-if="isReport" class="pg-nav-item"></Report>
-        <About v-if="isAbout" class="pg-nav-item"></About>
+        <Foot>
+
+        </Foot>
     </div>
 </template>
 
@@ -54,7 +68,7 @@ export default {
     name: 'index',
     data() {
         return {
-            nav: this.$route.query.nav
+            nav: this.$route.query.nav || 'wxApp'
         };
     },
     computed: {
