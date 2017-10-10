@@ -19,7 +19,7 @@ export default {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color:#33485D;
+    color:#000;
     background-color: #EFF3F5;
     min-height: 100%;
     width: 100%;

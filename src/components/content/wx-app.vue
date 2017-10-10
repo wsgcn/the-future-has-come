@@ -9,7 +9,6 @@
             height: 20px;
         }
     }
-
     .swiper-slide {
         cursor: pointer;
         img {
@@ -20,27 +19,40 @@
 
     .success-case {
         margin-top: 20px;
-        color: #000;
         .title {
-            font-size: 28px;
+            font-size: 22px;
+            font-weight: 400;
         }
         .label {
-            font-size: 24px;
-            color: #000;
+            font-size: 18px;  
         }
         .case-nav {
-            display: flex;
-            margin-top: 20px;
-            justify-content: center;
-            .nav-item {
+             display: flex;
+             justify-content: center;
+             margin-top: 20px;
+            .case-item {
                 margin-right: 40px;
-                img {
+                .case-img {
+                    position: relative;
                     width: 218px;
                     height: 218px;
-                }
+                    .down,
+                    .over{
+                        position: absolute;
+                        left: 0px;
+                        top: 0px;
+                        width: 100%;
+                        height: 100%;
+                    }
+                    .over {
+                        opacity: 0;
+                    }
+                    .over:hover {
+                        opacity: 100;
+                    }
+                }    
                 .label {
-                    font-size: 24px;
-                    color: #000;
+                    font-size: 18px;
                 }
             }
         }
@@ -48,8 +60,7 @@
     .why-use{
         margin-top: 50px;
         .label {
-            font-size: 28px;
-            color:#000;
+            font-size: 22px;
         }
         .video {
             display: flex;
@@ -69,8 +80,7 @@
     .service-flow {
         margin-top: 50px;
         .label {
-            font-size: 28px;
-            color:#000;
+            font-size: 22px;
         }
         img {
             margin-top: 34px;
@@ -81,8 +91,7 @@
     .our-custom {
         margin-top:50px;
         .label {
-            font-size: 28px;
-            color:#000;
+            font-size: 22px;
         }
         img {
             margin-top: 34px;
@@ -102,38 +111,26 @@
                     <img src="../../assets/images/wx-app/wx-app-banner.png"></img>
                 </div>
                 <div class="swiper-slide">
-                    <img src="http://mooc.inxedu.com/images/upload/image/20151026/1446026886181.jpg"></img>
-                </div>
-                <div class="swiper-slide">
-                    <img src="http://mooc.inxedu.com/images/upload/image/20151026/1446026905031.jpg"></img>
+                    <img src="../../assets/images/wx-app/wx-gong.png"></img>
                 </div>
             </div>
             <div class="swiper-button-prev swiper-button-white"></div>
             <div class="swiper-button-next swiper-button-white"></div>
         </div>
+
         <div class="success-case">
             <div class="title">成功案例</div>
             <div class="label">每一个小程序 都是一条销售渠道 都是一个好工具</div>
             <div class="case-nav">
-                <div class="nav-item">
-                    <img src="../../assets/images/wx-app/show.png" />
-                    <div class="label">门店展示</div>
+                <div class="case-item" v-for="(item,index) in caseItem">
+                    <div class="case-img">
+                         <img class="down" :src="item.img" >
+                         <img class="over" :src="item.overImg">
+                    </div>
+                    <div class="label">{{item.label}}</div>
                 </div>
-                <div class="nav-item">
-                    <img src="../../assets/images/wx-app/food.png" />
-                    <div class="label">餐饮行业</div>
-                </div>
-                <div class="nav-item">
-                    <img src="../../assets/images/wx-app/store.png" />
-                    <div class="label">定制商城</div>
-                </div>
-                <div class="nav-item">
-                    <img src="../../assets/images/wx-app/tool.png" />
-                    <div class="label">管理工具</div>
-                </div>
-            </div>
-        </div>
-
+            </div>  
+        </div>    
         <div class="why-use">
             <div class="label">为什么要使用小程序</div>
             <div class="video">
@@ -157,8 +154,20 @@
 <script>
 import Swiper from 'swiper';
 import 'swiper//dist/css/swiper.min.css';
+import show from '@/assets/images/wx-app/show.png';
+import store from '@/assets/images/wx-app/store.png';
+import food from '@/assets/images/wx-app/food.png';
+import tool from '@/assets/images/wx-app/tool.png';
 
 export default {
+    data() {
+        return {
+            caseItem: [{ img: show, overImg: store, label: '门店展示' },
+            { img: store, label: '定制商城'},
+            { img: food, overImg: store, label: '订餐系统' },
+            { img: tool, label: '管理工具' }]
+        };
+    },
     mounted() {
         var mySwiper = new Swiper('.swiper-container', {
             loop: true,
@@ -167,8 +176,6 @@ export default {
             prevButton: '.swiper-button-prev',
             nextButton: '.swiper-button-next'
         });
-    },
-    methods: {
     }
 };
 </script>

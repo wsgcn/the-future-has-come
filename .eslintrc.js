@@ -101,9 +101,9 @@ module.exports = {
         "no-underscore-dangle": 0,
         "no-unexpected-multiline": 2,
         "no-unneeded-ternary": 2,
-        "no-unused-expressions": 0,
+        "no-unused-expressions": 1,
         "no-unused-vars": [
-            0,
+            1,
             {
                 "vars": "all",
                 "args": "after-used"
