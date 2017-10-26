@@ -113,6 +113,9 @@
                 <div class="swiper-slide">
                     <img src="../../assets/images/wx-app/wx-gong.png"></img>
                 </div>
+                <div class="swiper-slide">
+                    <img src="../../assets/images/wx-app/website.png"></img>
+                </div>
             </div>
             <div class="swiper-button-prev swiper-button-white"></div>
             <div class="swiper-button-next swiper-button-white"></div>
