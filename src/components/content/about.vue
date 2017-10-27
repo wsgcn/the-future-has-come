@@ -87,11 +87,27 @@
              margin-top: 30px;
          }
          .item {
+             position: relative;
              .desc{
                  margin-top: 30px;
+                 padding-bottom: 30px;
                  text-align: left;
              }
-         }
+             :after {
+                 position: absolute;
+                 content:"";
+                 bottom: 0;
+                 right: 5px;
+                 left: 5px;
+                 height: 2px;
+                 border-bottom: 1px solid #E6E6E6; 
+             }
+        }
+        :last-child{
+            :after{
+              display: none;
+            }
+        }
     }
 }
 
